@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div id="todos-wrapper" v-bind:key="todo.id" v-for="todo in todos">
+  <div id="todos-wrapper">
+    <div class="todo-item-container" v-bind:key="todo.id" v-for="todo in todos">
       <SingleTodo v-on:del-todo="$emit('del-todo', todo.id)" v-bind:todo="todo" />
     </div>
   </div>
@@ -15,9 +15,18 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
+@import "../Styles/_mixins.scss";
+@import "../Styles/_variables.scss";
+
 #todos-wrapper {
-  border: 1px solid rgb(27, 201, 85);
-  margin: 10px;
+  // border: 1px solid rgb(27, 201, 85);
+  // margin: 5px;
+
+  .todo-item-container {
+    @include boxShadow;
+    border-radius: $borderRadius;
+    margin: 10px;
+  }
 }
 </style>

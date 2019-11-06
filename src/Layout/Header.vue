@@ -1,7 +1,9 @@
 <template>
-  <header class="header">
+  <header id="header">
+    <h1>Vue todo app</h1>
     <div id="nav">
-      <router-link to="/">Home</router-link>|
+      <router-link to="/">Home</router-link>
+      <span>|</span>
       <router-link to="/about">About</router-link>
     </div>
   </header>
@@ -13,27 +15,36 @@ export default {
 };
 </script>
 
-<style scoped>
-.header {
-  width: 100%;
-  height: 50px;
-  background-color: bisque;
-  border: 1px solid black;
-}
+<style lang="scss">
+@import "../Styles/_mixins.scss";
+@import "../Styles/_variables.scss";
 
-#nav {
-  height: 100%;
-  padding: 30px;
-  text-align: center;
-  vertical-align: center;
-}
+#header {
+  @include flexCenter(row, space-around);
+  @include boxShadow;
+  border-radius: $borderRadius;
+  align-items: center;
+  margin-bottom: 20px;
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  h1 {
+    color: $fontColor;
+    margin: 10px;
+  }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+  #nav {
+    a {
+      font-weight: bold;
+      text-decoration: none;
+      color: $fontColor;
+    }
+
+    span {
+      margin: 0px 10px 0px 10px;
+    }
+
+    a.router-link-exact-active {
+      color: #1c976b;
+    }
+  }
 }
 </style>

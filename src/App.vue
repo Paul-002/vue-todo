@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header />
-    <router-view />
+    <keep-alive include="home">
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 
@@ -10,22 +12,32 @@ import Header from "./Layout/Header";
 
 export default {
   name: "app",
-  components: { Header }
+  components: {
+    Header
+  }
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "./Styles/_mixins.scss";
+@import "./Styles/_variables.scss";
+
 * {
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
 }
 
-#app {
+body {
+  @include flexCenter(row, center);
+  background-color: #f8fafb;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: $fontColor;
 
-  margin: 10px;
+  #app {
+    min-width: 40%;
+    padding: 10px;
+    border: 1px solid black;
+  }
 }
 </style>

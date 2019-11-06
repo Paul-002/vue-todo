@@ -1,0 +1,9 @@
+@mixin flexCenter($flexDirection, $justify-content) {
+  display: flex;
+  flex-direction: $flexDirection;
+  justify-content: $justify-content;
+}
+
+@mixin boxShadow {
+  box-shadow: 0px 2px 1px rgba(196, 196, 196, 0.274);
+}

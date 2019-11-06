@@ -1,5 +1,5 @@
 <template>
-  <div id="container">
+  <div id="home-container">
     <TodosWrapper v-bind:todos="todos" v-on:del-todo="deleteTodo" />
     <AddTodo @add-todo="addTodo" />
   </div>
@@ -21,12 +21,6 @@ export default {
       todos: []
     };
   },
-  created() {
-    axios
-      .get("https://jsonplaceholder.typicode.com/todos?_limit=10")
-      .then(res => (this.todos = res.data))
-      .catch(err => alert(err));
-  },
 
   methods: {
     deleteTodo(id) {
@@ -43,12 +37,21 @@ export default {
         .then(res => (this.todos = [res.data, ...this.todos]))
         .catch(err => alert(err));
     }
+  },
+
+  created() {
+    axios
+      .get("https://jsonplaceholder.typicode.com/todos?_limit=10")
+      .then(res => {
+        this.todos = res.data;
+      })
+      .catch(err => alert(err));
   }
 };
 </script>
 
 <style scoped>
-#container {
+/* #home-container {
   border: 1px solid blue;
-}
+} */
 </style>
