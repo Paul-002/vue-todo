@@ -37,7 +37,6 @@ body {
   #app {
     min-width: 40%;
     padding: 10px;
-    border: 1px solid black;
   }
 }
 </style>

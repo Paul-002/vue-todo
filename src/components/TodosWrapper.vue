@@ -20,8 +20,7 @@ export default {
 @import "../Styles/_variables.scss";
 
 #todos-wrapper {
-  // border: 1px solid rgb(27, 201, 85);
-  // margin: 5px;
+  margin-bottom: 20px;
 
   .todo-item-container {
     @include boxShadow;

@@ -21,21 +21,21 @@ export default {
 
 #header {
   @include flexCenter(row, space-around);
-  @include boxShadow;
-  border-radius: $borderRadius;
+  border-bottom: 2px solid $color2;
   align-items: center;
   margin-bottom: 20px;
 
   h1 {
-    color: $fontColor;
+    color: $color2;
     margin: 10px;
   }
 
   #nav {
+    margin-right: 10px;
     a {
-      font-weight: bold;
       text-decoration: none;
-      color: $fontColor;
+      font-weight: bold;
+      color: $color2;
     }
 
     span {
@@ -43,7 +43,7 @@ export default {
     }
 
     a.router-link-exact-active {
-      color: #1c976b;
+      color: $color1;
     }
   }
 }

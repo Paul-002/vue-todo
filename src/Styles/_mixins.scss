@@ -1,3 +1,5 @@
+@import './_variables.scss';
+
 @mixin flexCenter($flexDirection, $justify-content) {
   display: flex;
   flex-direction: $flexDirection;
@@ -5,5 +7,16 @@
 }
 
 @mixin boxShadow {
-  box-shadow: 0px 2px 1px rgba(196, 196, 196, 0.274);
+  box-shadow: 0px 4px 1px rgba(196, 196, 196, 0.274);
+}
+
+@mixin basicInputStyle {
+  background-color: $color4;
+  border: 2px solid $color2;
+  border-radius: $borderRadiusInput;
+  transition: $transitionTime;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  margin: 10px;
+  padding: 10px;
 }

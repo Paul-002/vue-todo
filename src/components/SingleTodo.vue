@@ -1,6 +1,6 @@
 <template>
   <div class="todo-item">
-    <label class="container" v-bind:class="{'completed':todo.completed}">
+    <label class="label-container" v-bind:class="{'completed':todo.completed}">
       {{todo.title}}
       <input
         type="checkbox"
@@ -34,36 +34,36 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 10px;
 
   .completed {
     text-decoration: line-through;
   }
 
   .del-button {
-    color: #252525 !important;
-    border-radius: $borderRadius;
-    text-transform: uppercase;
+    color: $color2 !important;
+    border-radius: $borderRadiusButton;
     cursor: pointer;
     padding: 5px 8px 5px 8px;
-    border: 2px solid #252525 !important;
+    border: 2px solid $color2 !important;
     transition: all 0.2s ease 0s;
 
     &:hover {
-      color: #f8fafb !important;
-      background: #fec188;
-      border-color: #f6b93b !important;
+      color: $color4 !important;
+      background: $color3;
+      border-color: $color6 !important;
       transition: all 0.2s ease 0s;
     }
   }
 
-  .container {
+  .label-container {
     display: flex;
     align-items: center;
     display: block;
     position: relative;
     padding-left: 35px;
     font-size: 20px;
+    overflow: hidden;
     padding-top: 2px;
     margin-right: 20px;
     cursor: pointer;
@@ -76,12 +76,12 @@ export default {
       height: 0;
       width: 0;
 
-      &:hover input ~ .checkmark {
-        background-color: #ccc;
+      &:hover ~ .checkmark {
+        background-color: $color5;
       }
 
       &:checked ~ .checkmark {
-        background-color: $checkboxColor;
+        background-color: $color1;
       }
       &:checked ~ .checkmark:after {
         display: block;
@@ -95,7 +95,7 @@ export default {
       height: 25px;
       width: 25px;
       border-radius: 5px;
-      background-color: #f8fafb;
+      background-color: $color5;
 
       &:after {
         content: "";
@@ -105,7 +105,7 @@ export default {
         top: 5px;
         width: 5px;
         height: 10px;
-        border: solid #f8fafb;
+        border: solid $color4;
         border-width: 0 3px 3px 0;
         transform: rotate(45deg);
       }

@@ -8,6 +8,7 @@
 <script>
 import TodosWrapper from "../components/TodosWrapper";
 import AddTodo from "../components/AddTodo";
+import uuid from "uuid";
 import axios from "axios";
 
 export default {
@@ -31,17 +32,19 @@ export default {
     },
 
     addTodo(newTodo) {
-      const { title, complete } = newTodo;
       axios
-        .post("https://jsonplaceholder.typicode.com/todos", { title, complete })
-        .then(res => (this.todos = [res.data, ...this.todos]))
+        .post("https://jsonplaceholder.typicode.com/todos", newTodo)
+        .then(res => {
+          res.data.id = uuid.v4();
+          this.todos = [res.data, ...this.todos];
+        })
         .catch(err => alert(err));
     }
   },
 
   created() {
     axios
-      .get("https://jsonplaceholder.typicode.com/todos?_limit=10")
+      .get("https://jsonplaceholder.typicode.com/todos?_limit=5")
       .then(res => {
         this.todos = res.data;
       })
@@ -49,9 +52,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-/* #home-container {
-  border: 1px solid blue;
-} */
-</style>
