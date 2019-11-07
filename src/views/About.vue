@@ -3,7 +3,7 @@
     <h2>Hello! 👋</h2>
     <p>
       This is my first contact with
-      <b>Vue.js</b> library. I hope you enjoy!
+      <b>Vue.js</b> framework. I hope you enjoy!
       <br />
       <br />If you interested my other projects, check this
       <a
